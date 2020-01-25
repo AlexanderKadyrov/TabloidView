@@ -63,10 +63,6 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         fatalError("fatalError: cellForRowAtIndexPath")
     }
     
-    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil
-    }
-    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let section = viewModel.elements.value[section]
         return section.count
