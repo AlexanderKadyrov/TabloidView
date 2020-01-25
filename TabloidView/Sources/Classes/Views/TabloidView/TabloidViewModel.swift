@@ -6,7 +6,6 @@ open class TabloidViewModel {
     // MARK: - Enums
     
     public enum SeparatorStyle {
-        case singleLineEtched
         case singleLine
         case none
     }
