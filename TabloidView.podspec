@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 
   s.homepage               = 'https://github.com/AlexanderKadyrov/TabloidView'
   s.author                 = { 'Alexander Kadyrov' => 'alexander-kad@yandex.ru' }
-  s.source                 = { :git => 'git@github.com:AlexanderKadyrov/TabloidView.git', :tag => s.version }
+  s.source                 = { :git => 'https://github.com/AlexanderKadyrov/TabloidView.git', :tag => s.version }
   
   s.source_files           = 'TabloidView/Sources/**/*.{h,swift}'
 
