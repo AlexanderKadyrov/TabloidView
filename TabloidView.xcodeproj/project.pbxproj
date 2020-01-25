@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -92,8 +92,7 @@
 		CE01473E23DC71FF005BFAE0 /* TabloidView */ = {
 			isa = PBXGroup;
 			children = (
-				CE01473F23DC71FF005BFAE0 /* TabloidView.h */,
-				CE01474023DC71FF005BFAE0 /* Info.plist */,
+				CE01475623DC772F005BFAE0 /* Sources */,
 			);
 			path = TabloidView;
 			sourceTree = "<group>";
@@ -101,10 +100,43 @@
 		CE01474923DC71FF005BFAE0 /* TabloidViewTests */ = {
 			isa = PBXGroup;
 			children = (
+				CE01475823DC7761005BFAE0 /* Sources */,
+			);
+			path = TabloidViewTests;
+			sourceTree = "<group>";
+		};
+		CE01475623DC772F005BFAE0 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CE01475723DC773E005BFAE0 /* SupportingFiles */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		CE01475723DC773E005BFAE0 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CE01473F23DC71FF005BFAE0 /* TabloidView.h */,
+				CE01474023DC71FF005BFAE0 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		CE01475823DC7761005BFAE0 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CE01475923DC7769005BFAE0 /* SupportingFiles */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		CE01475923DC7769005BFAE0 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
 				CE01474A23DC71FF005BFAE0 /* TabloidViewTests.swift */,
 				CE01474C23DC71FF005BFAE0 /* Info.plist */,
 			);
-			path = TabloidViewTests;
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		EE5D3F6D0BE7F1E8A8A0E2AA /* Pods */ = {
@@ -115,7 +147,6 @@
 				D6749115451C56D6AA9F66D4 /* Pods-TabloidViewTests.debug.xcconfig */,
 				E8D1950CBE99399B4DF1464C /* Pods-TabloidViewTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -445,7 +476,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = TabloidView/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TabloidView/Sources/SupportingFiles/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -471,7 +502,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = TabloidView/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TabloidView/Sources/SupportingFiles/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
