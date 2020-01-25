@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		064B4B42A12106FE0CB94BFD /* Pods_TabloidView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E1A04230AB73240A540FB6 /* Pods_TabloidView.framework */; };
+		1500CF1171556A6DF4AEDF66 /* Pods_TabloidViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41BEC25B9B0FE9E217479E0A /* Pods_TabloidViewTests.framework */; };
 		CE01474623DC71FF005BFAE0 /* TabloidView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE01473C23DC71FF005BFAE0 /* TabloidView.framework */; };
 		CE01474B23DC71FF005BFAE0 /* TabloidViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01474A23DC71FF005BFAE0 /* TabloidViewTests.swift */; };
 		CE01474D23DC71FF005BFAE0 /* TabloidView.h in Headers */ = {isa = PBXBuildFile; fileRef = CE01473F23DC71FF005BFAE0 /* TabloidView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,12 +25,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3AE3C01791B2AA7F9A5FA7FB /* Pods-TabloidView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabloidView.release.xcconfig"; path = "Target Support Files/Pods-TabloidView/Pods-TabloidView.release.xcconfig"; sourceTree = "<group>"; };
+		41BEC25B9B0FE9E217479E0A /* Pods_TabloidViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TabloidViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C16D39E4F88F1DFEADF86A4F /* Pods-TabloidView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabloidView.debug.xcconfig"; path = "Target Support Files/Pods-TabloidView/Pods-TabloidView.debug.xcconfig"; sourceTree = "<group>"; };
 		CE01473C23DC71FF005BFAE0 /* TabloidView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TabloidView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE01473F23DC71FF005BFAE0 /* TabloidView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabloidView.h; sourceTree = "<group>"; };
 		CE01474023DC71FF005BFAE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE01474523DC71FF005BFAE0 /* TabloidViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TabloidViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE01474A23DC71FF005BFAE0 /* TabloidViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidViewTests.swift; sourceTree = "<group>"; };
 		CE01474C23DC71FF005BFAE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6749115451C56D6AA9F66D4 /* Pods-TabloidViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabloidViewTests.debug.xcconfig"; path = "Target Support Files/Pods-TabloidViewTests/Pods-TabloidViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E8D1950CBE99399B4DF1464C /* Pods-TabloidViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabloidViewTests.release.xcconfig"; path = "Target Support Files/Pods-TabloidViewTests/Pods-TabloidViewTests.release.xcconfig"; sourceTree = "<group>"; };
+		F4E1A04230AB73240A540FB6 /* Pods_TabloidView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TabloidView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				064B4B42A12106FE0CB94BFD /* Pods_TabloidView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,18 +53,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE01474623DC71FF005BFAE0 /* TabloidView.framework in Frameworks */,
+				1500CF1171556A6DF4AEDF66 /* Pods_TabloidViewTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C998B19BE5ACAAFADFF29D22 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4E1A04230AB73240A540FB6 /* Pods_TabloidView.framework */,
+				41BEC25B9B0FE9E217479E0A /* Pods_TabloidViewTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CE01473223DC71FF005BFAE0 = {
 			isa = PBXGroup;
 			children = (
 				CE01473E23DC71FF005BFAE0 /* TabloidView */,
 				CE01474923DC71FF005BFAE0 /* TabloidViewTests */,
 				CE01473D23DC71FF005BFAE0 /* Products */,
+				EE5D3F6D0BE7F1E8A8A0E2AA /* Pods */,
+				C998B19BE5ACAAFADFF29D22 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +107,18 @@
 			path = TabloidViewTests;
 			sourceTree = "<group>";
 		};
+		EE5D3F6D0BE7F1E8A8A0E2AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C16D39E4F88F1DFEADF86A4F /* Pods-TabloidView.debug.xcconfig */,
+				3AE3C01791B2AA7F9A5FA7FB /* Pods-TabloidView.release.xcconfig */,
+				D6749115451C56D6AA9F66D4 /* Pods-TabloidViewTests.debug.xcconfig */,
+				E8D1950CBE99399B4DF1464C /* Pods-TabloidViewTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -104,6 +137,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE01475023DC71FF005BFAE0 /* Build configuration list for PBXNativeTarget "TabloidView" */;
 			buildPhases = (
+				D034D3CAB7D8E3DE0EE1DA90 /* [CP] Check Pods Manifest.lock */,
 				CE01473723DC71FF005BFAE0 /* Headers */,
 				CE01473823DC71FF005BFAE0 /* Sources */,
 				CE01473923DC71FF005BFAE0 /* Frameworks */,
@@ -122,9 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE01475323DC71FF005BFAE0 /* Build configuration list for PBXNativeTarget "TabloidViewTests" */;
 			buildPhases = (
+				7AFA2A003A1DBF45075A3B0C /* [CP] Check Pods Manifest.lock */,
 				CE01474123DC71FF005BFAE0 /* Sources */,
 				CE01474223DC71FF005BFAE0 /* Frameworks */,
 				CE01474323DC71FF005BFAE0 /* Resources */,
+				7653E9C3AF42E4016EA71A41 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -188,6 +224,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7653E9C3AF42E4016EA71A41 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TabloidViewTests/Pods-TabloidViewTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TabloidViewTests/Pods-TabloidViewTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TabloidViewTests/Pods-TabloidViewTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7AFA2A003A1DBF45075A3B0C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TabloidViewTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D034D3CAB7D8E3DE0EE1DA90 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TabloidView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CE01473823DC71FF005BFAE0 /* Sources */ = {
@@ -338,6 +438,7 @@
 		};
 		CE01475123DC71FF005BFAE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C16D39E4F88F1DFEADF86A4F /* Pods-TabloidView.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -363,6 +464,7 @@
 		};
 		CE01475223DC71FF005BFAE0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AE3C01791B2AA7F9A5FA7FB /* Pods-TabloidView.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -388,6 +490,7 @@
 		};
 		CE01475423DC71FF005BFAE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6749115451C56D6AA9F66D4 /* Pods-TabloidViewTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TabloidViewTests/Info.plist;
@@ -405,6 +508,7 @@
 		};
 		CE01475523DC71FF005BFAE0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8D1950CBE99399B4DF1464C /* Pods-TabloidViewTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TabloidViewTests/Info.plist;
