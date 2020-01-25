@@ -56,7 +56,7 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     // MARK: - UITableViewDataSource
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cellViewModel = viewModel(at: indexPath), let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier) as? TabloidCellView {
+        if let cellViewModel = viewModel(at: indexPath), let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.cellIdentifier) as? TabloidCellView {
             cell.viewModel = cellViewModel
             return cell
         }
