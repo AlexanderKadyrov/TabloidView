@@ -22,10 +22,12 @@ open class TabloidViewModel {
     
     public let separatorStyle: SeparatorStyle
     public let tabloidStyle: TabloidStyle
+    public let cellIdentifiers: [String]
     
     // MARK: - Initialization
     
-    public init(tabloidStyle: TabloidStyle, separatorStyle: SeparatorStyle) {
+    public init(tabloidStyle: TabloidStyle, separatorStyle: SeparatorStyle, cellIdentifiers: [String]) {
+        self.cellIdentifiers = cellIdentifiers
         self.separatorStyle = separatorStyle
         self.tabloidStyle = tabloidStyle
     }
