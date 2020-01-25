@@ -1,6 +1,17 @@
 import UIKit
 
 fileprivate extension TabloidView {
+    
+    func register(cellIdentifiers: [String]) {
+        guard let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String else { return }
+        let _cellIdentifiers = cellIdentifiers.filter({ $0 == "" })
+        for identifier in _cellIdentifiers {
+            if let aClass = NSClassFromString(bundleName + "." + identifier) {
+                register(aClass, forCellReuseIdentifier: identifier)
+            }
+        }
+    }
+    
     func viewModel(at indexPath: IndexPath) -> TabloidCellViewModel? {
         let section = viewModel.elements.value[indexPath.section]
         let value = (section.count > indexPath.row) ? section[indexPath.row] : nil
@@ -51,6 +62,9 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         #if os(iOS)
         self.separatorStyle = viewModel.separatorStyle.rawValue
         #endif
+        self.register(cellIdentifiers: viewModel.cellIdentifiers)
+        self.dataSource = self
+        self.delegate = self
     }
     
     // MARK: - UITableViewDataSource
