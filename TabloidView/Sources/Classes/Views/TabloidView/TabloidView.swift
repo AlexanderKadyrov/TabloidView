@@ -1,10 +1,12 @@
+import ReactiveSwift
+import ReactiveCocoa
 import UIKit
 
 fileprivate extension TabloidView {
     
     func register(cellIdentifiers: [String]) {
         guard let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String else { return }
-        let _cellIdentifiers = cellIdentifiers.filter({ $0 == "" })
+        let _cellIdentifiers = cellIdentifiers.filter({ $0 != "" })
         for identifier in _cellIdentifiers {
             if let aClass = NSClassFromString(bundleName + "." + identifier) {
                 register(aClass, forCellReuseIdentifier: identifier)
@@ -63,8 +65,10 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         self.separatorStyle = viewModel.separatorStyle.rawValue
         #endif
         self.register(cellIdentifiers: viewModel.cellIdentifiers)
+        self.backgroundColor = .clear
         self.dataSource = self
         self.delegate = self
+        self.reactive.reloadData <~ viewModel.elements.signal.map({ _ in })
     }
     
     // MARK: - UITableViewDataSource
