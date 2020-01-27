@@ -102,6 +102,8 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cellViewModel = viewModel(at: indexPath) else { return }
-        viewModel.pipeDidSelectItem.input.send(value: cellViewModel)
+        DispatchQueue.main.async {
+            self.viewModel.pipeDidSelectItem.input.send(value: cellViewModel)
+        }
     }
 }
