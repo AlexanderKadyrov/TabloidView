@@ -97,6 +97,16 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if let cellViewModel = viewModel(at: indexPath), let cellClass = NSClassFromString(cellViewModel.cellIdentifier) as? TabloidCellView.Type {
+            let selector = #selector(cellClass.height)
+            if cellClass.responds(to: selector) {
+                if let height = cellClass.perform(selector, with: cellViewModel.cellIdentifier).takeUnretainedValue() as? NSNumber {
+                    if height.floatValue > 0 {
+                        return CGFloat(height.floatValue)
+                    }
+                }
+            }
+        }
         return UITableView.automaticDimension
     }
     
