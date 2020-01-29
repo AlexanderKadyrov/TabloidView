@@ -17,4 +17,10 @@ open class TabloidCellView: UITableViewCell {
         contentView.backgroundColor = .clear
         backgroundColor = .clear
     }
+    
+    // MARK: - Height
+    
+    @objc open class func height(viewModel: TabloidCellViewModel) -> NSNumber {
+        return 0
+    }
 }
