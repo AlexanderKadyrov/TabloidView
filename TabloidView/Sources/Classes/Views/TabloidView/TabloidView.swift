@@ -3,7 +3,6 @@ import ReactiveCocoa
 import UIKit
 
 fileprivate extension TabloidView {
-    
     func register(cellIdentifiers: [String]) {
         guard let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String else { return }
         let _cellIdentifiers = cellIdentifiers.filter({ $0 != "" })
@@ -12,13 +11,6 @@ fileprivate extension TabloidView {
                 register(aClass, forCellReuseIdentifier: identifier)
             }
         }
-    }
-    
-    func viewModel(at indexPath: IndexPath) -> TabloidCellViewModel? {
-        let section = viewModel.elements.value[indexPath.section]
-        let value = (section.count > indexPath.row) ? section[indexPath.row] : nil
-        guard let viewModel = value else { return nil }
-        return viewModel
     }
 }
 
@@ -113,5 +105,14 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         DispatchQueue.main.async {
             self.viewModel.pipeDidSelectItem.input.send(value: cellViewModel)
         }
+    }
+    
+    // MARK: - ViewModel At IndexPath
+    
+    public func viewModel(at indexPath: IndexPath) -> TabloidCellViewModel? {
+        let section = viewModel.elements.value[indexPath.section]
+        let value = (section.count > indexPath.row) ? section[indexPath.row] : nil
+        guard let viewModel = value else { return nil }
+        return viewModel
     }
 }
