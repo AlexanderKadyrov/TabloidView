@@ -15,7 +15,6 @@
 		CE01475E23DC77F9005BFAE0 /* TabloidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01475D23DC77F9005BFAE0 /* TabloidView.swift */; };
 		CE01476023DC781B005BFAE0 /* TabloidViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01475F23DC781B005BFAE0 /* TabloidViewModel.swift */; };
 		CE01476123DC781B005BFAE0 /* TabloidViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01475F23DC781B005BFAE0 /* TabloidViewModel.swift */; };
-		CE1660F92454D88900C9BF9C /* TabloidViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1660F82454D88900C9BF9C /* TabloidViewProtocol.swift */; };
 		CE1660FB2454D8D000C9BF9C /* TabloidViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1660FA2454D8D000C9BF9C /* TabloidViewModelProtocol.swift */; };
 		CE1660FD2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift */; };
 		CE1660FF2454DF7800C9BF9C /* TabloidCellViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1660FE2454DF7800C9BF9C /* TabloidCellViewProtocol.swift */; };
@@ -44,7 +43,6 @@
 		CE01474C23DC71FF005BFAE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE01475D23DC77F9005BFAE0 /* TabloidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidView.swift; sourceTree = "<group>"; };
 		CE01475F23DC781B005BFAE0 /* TabloidViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidViewModel.swift; sourceTree = "<group>"; };
-		CE1660F82454D88900C9BF9C /* TabloidViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidViewProtocol.swift; sourceTree = "<group>"; };
 		CE1660FA2454D8D000C9BF9C /* TabloidViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidViewModelProtocol.swift; sourceTree = "<group>"; };
 		CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidCellViewModelProtocol.swift; sourceTree = "<group>"; };
 		CE1660FE2454DF7800C9BF9C /* TabloidCellViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidCellViewProtocol.swift; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 			children = (
 				CE1661022455048C00C9BF9C /* ViewModels */,
 				CE1660FE2454DF7800C9BF9C /* TabloidCellViewProtocol.swift */,
-				CE1660F82454D88900C9BF9C /* TabloidViewProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -390,7 +387,6 @@
 			files = (
 				CE1661012454F33A00C9BF9C /* TabloidCellView.swift in Sources */,
 				CE1660FB2454D8D000C9BF9C /* TabloidViewModelProtocol.swift in Sources */,
-				CE1660F92454D88900C9BF9C /* TabloidViewProtocol.swift in Sources */,
 				CE1660FF2454DF7800C9BF9C /* TabloidCellViewProtocol.swift in Sources */,
 				CE01476023DC781B005BFAE0 /* TabloidViewModel.swift in Sources */,
 				CE01475E23DC77F9005BFAE0 /* TabloidView.swift in Sources */,
