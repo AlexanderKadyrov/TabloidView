@@ -169,20 +169,20 @@
 		CE01475C23DC77E1005BFAE0 /* TabloidView */ = {
 			isa = PBXGroup;
 			children = (
-				CE01476423DC7997005BFAE0 /* TabloidViewCell */,
+				CE1660F72454D80E00C9BF9C /* Protocols */,
+				CE01476523DC7A17005BFAE0 /* TabloidCellViewModel.swift */,
+				CE01476223DC7990005BFAE0 /* TabloidCellView.swift */,
 				CE01475F23DC781B005BFAE0 /* TabloidViewModel.swift */,
 				CE01475D23DC77F9005BFAE0 /* TabloidView.swift */,
 			);
 			path = TabloidView;
 			sourceTree = "<group>";
 		};
-		CE01476423DC7997005BFAE0 /* TabloidViewCell */ = {
+		CE1660F72454D80E00C9BF9C /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				CE01476523DC7A17005BFAE0 /* TabloidCellViewModel.swift */,
-				CE01476223DC7990005BFAE0 /* TabloidCellView.swift */,
 			);
-			path = TabloidViewCell;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		EE5D3F6D0BE7F1E8A8A0E2AA /* Pods */ = {
