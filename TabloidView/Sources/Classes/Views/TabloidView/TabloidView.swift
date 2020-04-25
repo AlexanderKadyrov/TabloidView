@@ -14,7 +14,7 @@ fileprivate extension TabloidView {
     }
 }
 
-open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate {
+open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
     
@@ -26,7 +26,7 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(viewModel: TabloidViewModel, style: UITableView.Style) {
+    public required init(viewModel: TabloidViewModel, style: UITableView.Style) {
         self.viewModel = viewModel
         super.init(frame: .zero, style: style)
         self.register(cellIdentifiers: viewModel.cellIdentifiers)
