@@ -1,7 +1,7 @@
 import ReactiveSwift
 import Foundation
 
-open class TabloidViewModel {
+open class TabloidViewModel: TabloidViewModelProtocol {
     
     // MARK: - Properties
     
@@ -12,7 +12,7 @@ open class TabloidViewModel {
     
     // MARK: - Initialization
     
-    public init(cellIdentifiers: [String]) {
+    public required init(cellIdentifiers: [String]) {
         self.cellIdentifiers = cellIdentifiers
     }
 }
