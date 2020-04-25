@@ -5,8 +5,8 @@ open class TabloidViewModel: TabloidViewModelProtocol {
     
     // MARK: - Properties
     
-    public let pipeDidSelectItem = Signal<TabloidCellViewModel, Never>.pipe()
-    public let elements = MutableProperty<[[TabloidCellViewModel]]>([])
+    public let pipeDidSelectItem = Signal<TabloidCellViewModelProtocol, Never>.pipe()
+    public let elements = MutableProperty<[[TabloidCellViewModelProtocol]]>([])
     
     public let cellIdentifiers: [String]
     
