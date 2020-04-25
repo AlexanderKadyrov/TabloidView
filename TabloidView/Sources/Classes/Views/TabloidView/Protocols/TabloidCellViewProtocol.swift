@@ -6,8 +6,4 @@ public protocol TabloidCellViewProtocol: UITableViewCell {
     
     associatedtype TabloidCellViewModelProtocol
     var viewModel: TabloidCellViewModelProtocol { get set }
-    
-    // MARK: - Height
-    
-    static func height(viewModel: TabloidCellViewModelProtocol) -> NSNumber
 }
