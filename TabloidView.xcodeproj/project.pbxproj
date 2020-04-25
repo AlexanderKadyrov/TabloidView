@@ -21,6 +21,7 @@
 		CE1660F92454D88900C9BF9C /* TabloidViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1660F82454D88900C9BF9C /* TabloidViewProtocol.swift */; };
 		CE1660FB2454D8D000C9BF9C /* TabloidViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1660FA2454D8D000C9BF9C /* TabloidViewModelProtocol.swift */; };
 		CE1660FD2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift */; };
+		CE1660FF2454DF7800C9BF9C /* TabloidCellViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1660FE2454DF7800C9BF9C /* TabloidCellViewProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		CE1660F82454D88900C9BF9C /* TabloidViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidViewProtocol.swift; sourceTree = "<group>"; };
 		CE1660FA2454D8D000C9BF9C /* TabloidViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidViewModelProtocol.swift; sourceTree = "<group>"; };
 		CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidCellViewModelProtocol.swift; sourceTree = "<group>"; };
+		CE1660FE2454DF7800C9BF9C /* TabloidCellViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidCellViewProtocol.swift; sourceTree = "<group>"; };
 		D6749115451C56D6AA9F66D4 /* Pods-TabloidViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabloidViewTests.debug.xcconfig"; path = "Target Support Files/Pods-TabloidViewTests/Pods-TabloidViewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E8D1950CBE99399B4DF1464C /* Pods-TabloidViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabloidViewTests.release.xcconfig"; path = "Target Support Files/Pods-TabloidViewTests/Pods-TabloidViewTests.release.xcconfig"; sourceTree = "<group>"; };
 		F4E1A04230AB73240A540FB6 /* Pods_TabloidView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TabloidView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift */,
+				CE1660FE2454DF7800C9BF9C /* TabloidCellViewProtocol.swift */,
 				CE1660FA2454D8D000C9BF9C /* TabloidViewModelProtocol.swift */,
 				CE1660F82454D88900C9BF9C /* TabloidViewProtocol.swift */,
 			);
@@ -385,6 +388,7 @@
 				CE1660F92454D88900C9BF9C /* TabloidViewProtocol.swift in Sources */,
 				CE01476623DC7A17005BFAE0 /* TabloidCellViewModel.swift in Sources */,
 				CE01476323DC7990005BFAE0 /* TabloidCellView.swift in Sources */,
+				CE1660FF2454DF7800C9BF9C /* TabloidCellViewProtocol.swift in Sources */,
 				CE01476023DC781B005BFAE0 /* TabloidViewModel.swift in Sources */,
 				CE01475E23DC77F9005BFAE0 /* TabloidView.swift in Sources */,
 				CE1660FD2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift in Sources */,
