@@ -80,15 +80,13 @@ open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource,
     }
     
     open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let automaticDimension = UITableView.automaticDimension
-        guard let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String else { return automaticDimension }
-        guard let cellViewModel = viewModel(at: indexPath) else { return automaticDimension }
-        guard let aClass = NSClassFromString(bundleName + "." + cellViewModel.cellIdentifier) as? TabloidCellView.Type else { return automaticDimension }
-        let selector = #selector(aClass.height)
-        guard aClass.responds(to: selector) else { return automaticDimension }
-        guard let height = aClass.perform(selector, with: cellViewModel.cellIdentifier).takeUnretainedValue() as? NSNumber else { return automaticDimension }
-        guard height.floatValue > 0 else { return automaticDimension }
-        return CGFloat(height.floatValue)
+        guard let cellViewModel = viewModel(at: indexPath) else { return UITableView.automaticDimension }
+        switch cellViewModel.height() {
+        case .automaticDimension:
+            return UITableView.automaticDimension
+        case .some(let value):
+            return CGFloat(value)
+        }
     }
     
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
