@@ -2,16 +2,16 @@ import ReactiveSwift
 import ReactiveCocoa
 import UIKit
 
-fileprivate extension TabloidView {
-    func register(cellIdentifiers: [String]) {
-        guard let bundleName = (Bundle.main.infoDictionary?["CFBundleName"] as? String)?.replacingOccurrences(of: ".", with: "_") else { return }
-        let _cellIdentifiers = cellIdentifiers.filter({ $0 != "" })
-        for identifier in _cellIdentifiers {
-            if let aClass = NSClassFromString(bundleName + "." + identifier) {
-                register(aClass, forCellReuseIdentifier: identifier)
-            }
-        }
-    }
+public protocol TabloidViewProtocol: UITableView {
+    
+    // MARK: - Properties
+    
+    associatedtype TabloidViewModelProtocol
+    var viewModel: TabloidViewModelProtocol { get }
+    
+    // MARK: - Initialization
+    
+    init(viewModel: TabloidViewModelProtocol, style: UITableView.Style)
 }
 
 open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource, UITableViewDelegate {
@@ -103,5 +103,17 @@ open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource,
         let value = (section.count > indexPath.row) ? section[indexPath.row] : nil
         guard let viewModel = value else { return nil }
         return viewModel
+    }
+}
+
+fileprivate extension TabloidView {
+    func register(cellIdentifiers: [String]) {
+        guard let bundleName = (Bundle.main.infoDictionary?["CFBundleName"] as? String)?.replacingOccurrences(of: ".", with: "_") else { return }
+        let _cellIdentifiers = cellIdentifiers.filter({ $0 != "" })
+        for identifier in _cellIdentifiers {
+            if let aClass = NSClassFromString(bundleName + "." + identifier) {
+                register(aClass, forCellReuseIdentifier: identifier)
+            }
+        }
     }
 }
