@@ -65,7 +65,7 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     
     // MARK: - UITableViewDataSource
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cellViewModel = viewModel(at: indexPath), let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.cellIdentifier) as? TabloidCellView {
             cell.viewModel = cellViewModel
             return cell
@@ -73,22 +73,22 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         fatalError("fatalError: cellForRowAtIndexPath")
     }
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let section = viewModel.elements.value[section]
         return section.count
     }
     
-    public func numberOfSections(in tableView: UITableView) -> Int {
+    open func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.elements.value.count
     }
     
     // MARK: - UITableViewDelegate
     
-    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension
     }
     
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let automaticDimension = UITableView.automaticDimension
         guard let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String else { return automaticDimension }
         guard let cellViewModel = viewModel(at: indexPath) else { return automaticDimension }
@@ -100,7 +100,7 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         return CGFloat(height.floatValue)
     }
     
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cellViewModel = viewModel(at: indexPath) else { return }
         DispatchQueue.main.async {
             self.viewModel.pipeDidSelectItem.input.send(value: cellViewModel)
