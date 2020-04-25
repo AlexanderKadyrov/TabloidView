@@ -185,12 +185,20 @@
 		CE1660F72454D80E00C9BF9C /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift */,
+				CE1661022455048C00C9BF9C /* ViewModels */,
 				CE1660FE2454DF7800C9BF9C /* TabloidCellViewProtocol.swift */,
-				CE1660FA2454D8D000C9BF9C /* TabloidViewModelProtocol.swift */,
 				CE1660F82454D88900C9BF9C /* TabloidViewProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CE1661022455048C00C9BF9C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift */,
+				CE1660FA2454D8D000C9BF9C /* TabloidViewModelProtocol.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		EE5D3F6D0BE7F1E8A8A0E2AA /* Pods */ = {
