@@ -4,7 +4,7 @@ import UIKit
 
 fileprivate extension TabloidView {
     func register(cellIdentifiers: [String]) {
-        guard let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String else { return }
+        guard let bundleName = (Bundle.main.infoDictionary?["CFBundleName"] as? String)?.replacingOccurrences(of: ".", with: "_") else { return }
         let _cellIdentifiers = cellIdentifiers.filter({ $0 != "" })
         for identifier in _cellIdentifiers {
             if let aClass = NSClassFromString(bundleName + "." + identifier) {
