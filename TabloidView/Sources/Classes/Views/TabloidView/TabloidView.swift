@@ -30,7 +30,6 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         self.viewModel = viewModel
         super.init(frame: .zero, style: style)
         self.register(cellIdentifiers: viewModel.cellIdentifiers)
-        self.backgroundColor = .clear
         self.dataSource = self
         self.delegate = self
         self.reactive.reloadData <~ viewModel.elements.signal.map({ _ in })
