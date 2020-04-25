@@ -10,4 +10,8 @@ public protocol TabloidViewProtocol: UITableView {
     // MARK: - Initialization
     
     init(viewModel: TabloidViewModelProtocol, style: UITableView.Style)
+    
+    // MARK: - Height
+    
+    static func height(viewModel: TabloidCellViewModelProtocol) -> NSNumber
 }
