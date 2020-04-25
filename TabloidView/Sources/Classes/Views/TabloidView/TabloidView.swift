@@ -14,30 +14,6 @@ fileprivate extension TabloidView {
     }
 }
 
-fileprivate extension TabloidViewModel.TabloidStyle {
-    var rawValue: UITableView.Style {
-        switch self {
-        case .grouped:
-            return .grouped
-        case .plain:
-            return .plain
-        }
-    }
-}
-
-#if os(iOS)
-fileprivate extension TabloidViewModel.SeparatorStyle {
-    var rawValue: UITableViewCell.SeparatorStyle {
-        switch self {
-        case .singleLine:
-            return .singleLine
-        case .none:
-            return .none
-        }
-    }
-}
-#endif
-
 open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
@@ -50,12 +26,9 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(viewModel: TabloidViewModel) {
+    public init(viewModel: TabloidViewModel, style: UITableView.Style) {
         self.viewModel = viewModel
-        super.init(frame: .zero, style: viewModel.tabloidStyle.rawValue)
-        #if os(iOS)
-        self.separatorStyle = viewModel.separatorStyle.rawValue
-        #endif
+        super.init(frame: .zero, style: style)
         self.register(cellIdentifiers: viewModel.cellIdentifiers)
         self.backgroundColor = .clear
         self.dataSource = self
