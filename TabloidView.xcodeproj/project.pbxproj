@@ -15,9 +15,6 @@
 		CE01475E23DC77F9005BFAE0 /* TabloidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01475D23DC77F9005BFAE0 /* TabloidView.swift */; };
 		CE01476023DC781B005BFAE0 /* TabloidViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01475F23DC781B005BFAE0 /* TabloidViewModel.swift */; };
 		CE01476123DC781B005BFAE0 /* TabloidViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01475F23DC781B005BFAE0 /* TabloidViewModel.swift */; };
-		CE01476323DC7990005BFAE0 /* TabloidCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01476223DC7990005BFAE0 /* TabloidCellView.swift */; };
-		CE01476623DC7A17005BFAE0 /* TabloidCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01476523DC7A17005BFAE0 /* TabloidCellViewModel.swift */; };
-		CE01476723DC7A17005BFAE0 /* TabloidCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01476523DC7A17005BFAE0 /* TabloidCellViewModel.swift */; };
 		CE1660F92454D88900C9BF9C /* TabloidViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1660F82454D88900C9BF9C /* TabloidViewProtocol.swift */; };
 		CE1660FB2454D8D000C9BF9C /* TabloidViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1660FA2454D8D000C9BF9C /* TabloidViewModelProtocol.swift */; };
 		CE1660FD2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift */; };
@@ -46,8 +43,6 @@
 		CE01474C23DC71FF005BFAE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE01475D23DC77F9005BFAE0 /* TabloidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidView.swift; sourceTree = "<group>"; };
 		CE01475F23DC781B005BFAE0 /* TabloidViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidViewModel.swift; sourceTree = "<group>"; };
-		CE01476223DC7990005BFAE0 /* TabloidCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidCellView.swift; sourceTree = "<group>"; };
-		CE01476523DC7A17005BFAE0 /* TabloidCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidCellViewModel.swift; sourceTree = "<group>"; };
 		CE1660F82454D88900C9BF9C /* TabloidViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidViewProtocol.swift; sourceTree = "<group>"; };
 		CE1660FA2454D8D000C9BF9C /* TabloidViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidViewModelProtocol.swift; sourceTree = "<group>"; };
 		CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidCellViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -178,8 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				CE1660F72454D80E00C9BF9C /* Protocols */,
-				CE01476523DC7A17005BFAE0 /* TabloidCellViewModel.swift */,
-				CE01476223DC7990005BFAE0 /* TabloidCellView.swift */,
 				CE01475F23DC781B005BFAE0 /* TabloidViewModel.swift */,
 				CE01475D23DC77F9005BFAE0 /* TabloidView.swift */,
 			);
@@ -386,8 +379,6 @@
 			files = (
 				CE1660FB2454D8D000C9BF9C /* TabloidViewModelProtocol.swift in Sources */,
 				CE1660F92454D88900C9BF9C /* TabloidViewProtocol.swift in Sources */,
-				CE01476623DC7A17005BFAE0 /* TabloidCellViewModel.swift in Sources */,
-				CE01476323DC7990005BFAE0 /* TabloidCellView.swift in Sources */,
 				CE1660FF2454DF7800C9BF9C /* TabloidCellViewProtocol.swift in Sources */,
 				CE01476023DC781B005BFAE0 /* TabloidViewModel.swift in Sources */,
 				CE01475E23DC77F9005BFAE0 /* TabloidView.swift in Sources */,
@@ -401,7 +392,6 @@
 			files = (
 				CE01476123DC781B005BFAE0 /* TabloidViewModel.swift in Sources */,
 				CE01474B23DC71FF005BFAE0 /* TabloidViewTests.swift in Sources */,
-				CE01476723DC7A17005BFAE0 /* TabloidCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
