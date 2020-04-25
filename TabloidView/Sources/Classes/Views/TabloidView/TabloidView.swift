@@ -18,7 +18,7 @@ open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource,
     
     // MARK: - Properties
     
-    public let viewModel: TabloidViewModel
+    public let viewModel: TabloidViewModelProtocol
     
     // MARK: - Initialization
     
@@ -26,7 +26,7 @@ open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource,
         fatalError("init(coder:) has not been implemented")
     }
     
-    public required init(viewModel: TabloidViewModel, style: UITableView.Style) {
+    public required init(viewModel: TabloidViewModelProtocol, style: UITableView.Style) {
         self.viewModel = viewModel
         super.init(frame: .zero, style: style)
         self.register(cellIdentifiers: viewModel.cellIdentifiers)
