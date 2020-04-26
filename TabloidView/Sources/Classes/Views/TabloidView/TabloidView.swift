@@ -18,6 +18,7 @@ open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource,
     
     // MARK: - Properties
     
+    private let bundleName = Bundle.main.name
     public let viewModel: TabloidViewModel
     
     // MARK: - Initialization
@@ -81,8 +82,7 @@ open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource,
     
     open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let automaticDimension = UITableView.automaticDimension
-        guard let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String else { return automaticDimension }
-        guard let cellViewModel = viewModel(at: indexPath) else { return automaticDimension }
+        guard let bundleName = bundleName, let cellViewModel = viewModel(at: indexPath) else { return automaticDimension }
         guard let aClass = NSClassFromString(bundleName + "." + cellViewModel.cellIdentifier) as? TabloidCellView.Type else { return automaticDimension }
         let height = aClass.height(viewModel: cellViewModel)
         guard height > 0 else { return automaticDimension }
@@ -108,12 +108,18 @@ open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource,
 
 fileprivate extension TabloidView {
     func register(cellIdentifiers: [String]) {
-        guard let bundleName = (Bundle.main.infoDictionary?["CFBundleName"] as? String)?.replacingOccurrences(of: ".", with: "_") else { return }
+        guard let bundleName = bundleName else { return }
         let _cellIdentifiers = cellIdentifiers.filter({ $0 != "" })
         for identifier in _cellIdentifiers {
             if let aClass = NSClassFromString(bundleName + "." + identifier) {
                 register(aClass, forCellReuseIdentifier: identifier)
             }
         }
+    }
+}
+
+fileprivate extension Bundle {
+    var name: String? {
+        return (Bundle.main.infoDictionary?["CFBundleName"] as? String)?.replacingOccurrences(of: ".", with: "_")
     }
 }
