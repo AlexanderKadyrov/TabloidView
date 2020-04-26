@@ -6,6 +6,10 @@ public protocol TabloidCellViewProtocol: UITableViewCell {
     
     associatedtype TabloidCellViewModelProtocol
     var viewModel: TabloidCellViewModelProtocol! { get set }
+    
+    // MARK: - Height
+    
+    static func height(viewModel: TabloidCellViewModelProtocol) -> CGFloat
 }
 
 open class TabloidCellView: UITableViewCell, TabloidCellViewProtocol {
@@ -13,4 +17,10 @@ open class TabloidCellView: UITableViewCell, TabloidCellViewProtocol {
     // MARK: - Properties
     
     public var viewModel: TabloidCellViewModel!
+    
+    // MARK: - Height
+    
+    public static func height(viewModel: TabloidCellViewModel) -> CGFloat {
+        return 0
+    }
 }
