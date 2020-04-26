@@ -15,7 +15,7 @@
 		CE01475E23DC77F9005BFAE0 /* TabloidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01475D23DC77F9005BFAE0 /* TabloidView.swift */; };
 		CE01476023DC781B005BFAE0 /* TabloidViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01475F23DC781B005BFAE0 /* TabloidViewModel.swift */; };
 		CE01476123DC781B005BFAE0 /* TabloidViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01475F23DC781B005BFAE0 /* TabloidViewModel.swift */; };
-		CE1660FD2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift */; };
+		CE1660FD2454DBEB00C9BF9C /* TabloidCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModel.swift */; };
 		CE1661012454F33A00C9BF9C /* TabloidCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1661002454F33A00C9BF9C /* TabloidCellView.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +41,7 @@
 		CE01474C23DC71FF005BFAE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE01475D23DC77F9005BFAE0 /* TabloidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidView.swift; sourceTree = "<group>"; };
 		CE01475F23DC781B005BFAE0 /* TabloidViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidViewModel.swift; sourceTree = "<group>"; };
-		CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidCellViewModelProtocol.swift; sourceTree = "<group>"; };
+		CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidCellViewModel.swift; sourceTree = "<group>"; };
 		CE1661002454F33A00C9BF9C /* TabloidCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidCellView.swift; sourceTree = "<group>"; };
 		D6749115451C56D6AA9F66D4 /* Pods-TabloidViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabloidViewTests.debug.xcconfig"; path = "Target Support Files/Pods-TabloidViewTests/Pods-TabloidViewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E8D1950CBE99399B4DF1464C /* Pods-TabloidViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabloidViewTests.release.xcconfig"; path = "Target Support Files/Pods-TabloidViewTests/Pods-TabloidViewTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,28 +168,12 @@
 		CE01475C23DC77E1005BFAE0 /* TabloidView */ = {
 			isa = PBXGroup;
 			children = (
-				CE1660F72454D80E00C9BF9C /* Protocols */,
+				CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModel.swift */,
 				CE01475F23DC781B005BFAE0 /* TabloidViewModel.swift */,
 				CE1661002454F33A00C9BF9C /* TabloidCellView.swift */,
 				CE01475D23DC77F9005BFAE0 /* TabloidView.swift */,
 			);
 			path = TabloidView;
-			sourceTree = "<group>";
-		};
-		CE1660F72454D80E00C9BF9C /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				CE1661022455048C00C9BF9C /* ViewModels */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		CE1661022455048C00C9BF9C /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		EE5D3F6D0BE7F1E8A8A0E2AA /* Pods */ = {
@@ -382,7 +366,7 @@
 				CE1661012454F33A00C9BF9C /* TabloidCellView.swift in Sources */,
 				CE01476023DC781B005BFAE0 /* TabloidViewModel.swift in Sources */,
 				CE01475E23DC77F9005BFAE0 /* TabloidView.swift in Sources */,
-				CE1660FD2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift in Sources */,
+				CE1660FD2454DBEB00C9BF9C /* TabloidCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
