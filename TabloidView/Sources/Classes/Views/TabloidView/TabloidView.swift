@@ -18,7 +18,7 @@ open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource,
     
     // MARK: - Properties
     
-    public let viewModel: TabloidViewModelProtocol
+    public let viewModel: TabloidViewModel
     
     // MARK: - Initialization
     
@@ -26,7 +26,7 @@ open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource,
         fatalError("init(coder:) has not been implemented")
     }
     
-    public required init(viewModel: TabloidViewModelProtocol, style: UITableView.Style) {
+    public required init(viewModel: TabloidViewModel, style: UITableView.Style) {
         self.viewModel = viewModel
         super.init(frame: .zero, style: style)
         self.register(cellIdentifiers: viewModel.cellIdentifiers)
@@ -43,7 +43,7 @@ open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource,
             fatalError("fatalError: cellForRowAtIndexPath")
         }
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.cellIdentifier) as? TabloidCellViewProtocol else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.cellIdentifier) as? TabloidCellView else {
             fatalError("fatalError: cellForRowAtIndexPath")
         }
         
@@ -80,13 +80,7 @@ open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource,
     }
     
     open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let cellViewModel = viewModel(at: indexPath) else { return UITableView.automaticDimension }
-        switch cellViewModel.height() {
-        case .automaticDimension:
-            return UITableView.automaticDimension
-        case .some(let value):
-            return CGFloat(value)
-        }
+        return -1
     }
     
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -98,7 +92,7 @@ open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource,
     
     // MARK: - ViewModel At IndexPath
     
-    public func viewModel(at indexPath: IndexPath) -> TabloidCellViewModelProtocol? {
+    public func viewModel(at indexPath: IndexPath) -> TabloidCellViewModel? {
         let section = viewModel.elements.value[indexPath.section]
         let value = (section.count > indexPath.row) ? section[indexPath.row] : nil
         guard let viewModel = value else { return nil }
