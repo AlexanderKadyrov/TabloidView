@@ -6,12 +6,12 @@ public protocol TabloidViewProtocol: UITableView {
     
     // MARK: - Properties
     
-    associatedtype TabloidViewModelProtocol
-    var viewModel: TabloidViewModelProtocol { get }
+    associatedtype T: TabloidViewModelProtocol
+    var viewModel: T { get }
     
     // MARK: - Initialization
     
-    init(viewModel: TabloidViewModelProtocol, style: UITableView.Style)
+    init(viewModel: T, style: UITableView.Style)
 }
 
 open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource, UITableViewDelegate {
