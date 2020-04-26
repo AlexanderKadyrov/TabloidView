@@ -4,8 +4,8 @@ public protocol TabloidCellViewProtocol: UITableViewCell {
     
     // MARK: - Properties
     
-    associatedtype T: TabloidCellViewModelProtocol
-    var viewModel: T! { get set }
+    associatedtype TabloidCellViewModelProtocol
+    var viewModel: TabloidCellViewModelProtocol! { get set }
 }
 
 open class TabloidCellView: UITableViewCell, TabloidCellViewProtocol {
