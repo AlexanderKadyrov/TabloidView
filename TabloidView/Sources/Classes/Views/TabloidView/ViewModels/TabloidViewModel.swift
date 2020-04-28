@@ -12,7 +12,7 @@ open class TabloidViewModel {
     
     // MARK: - Initialization
     
-    public required init(cellIdentifiers: [String]) {
+    public init(cellIdentifiers: [String]) {
         self.cellIdentifiers = cellIdentifiers
     }
 }
