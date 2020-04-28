@@ -8,7 +8,7 @@ open class TabloidCellViewModel: NSObject {
     
     // MARK: - Initialization
     
-    public required init(cellIdentifier: String) {
+    public init(cellIdentifier: String) {
         self.cellIdentifier = cellIdentifier
     }
 }
