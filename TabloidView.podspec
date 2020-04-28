@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.module_name            = 'TabloidView'
   s.summary                = 'TabloidView'
   s.description            = 'TabloidView'
-  s.version                = '1.0.9'
+  s.version                = '1.1.0'
 
   s.homepage               = 'https://github.com/AlexanderKadyrov/TabloidView'
   s.author                 = { 'Alexander Kadyrov' => 'alexander-kad@yandex.ru' }
