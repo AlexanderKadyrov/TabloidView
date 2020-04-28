@@ -1,18 +1,7 @@
 import ReactiveSwift
 import Foundation
 
-public protocol TabloidViewModelProtocol {
-    
-    // MARK: - Properties
-    
-    var cellIdentifiers: [String] { get }
-    
-    // MARK: - Initialization
-    
-    init(cellIdentifiers: [String])
-}
-
-open class TabloidViewModel: TabloidViewModelProtocol {
+open class TabloidViewModel {
     
     // MARK: - Properties
     
