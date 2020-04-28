@@ -1,6 +1,6 @@
 import Foundation
 
-open class TabloidCellViewModel {
+open class TabloidCellViewModel: NSObject {
     
     // MARK: - Properties
     
