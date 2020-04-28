@@ -10,5 +10,6 @@ open class TabloidCellViewModel: NSObject {
     
     public init(cellIdentifier: String) {
         self.cellIdentifier = cellIdentifier
+        super.init()
     }
 }
