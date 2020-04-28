@@ -8,7 +8,7 @@ open class TabloidCellView: UITableViewCell {
     
     // MARK: - Height
     
-    @objc open class func height(viewModel: TabloidCellViewModel) -> CGFloat {
+    @objc open class func height(viewModel: TabloidCellViewModel) -> NSNumber {
         return 0
     }
 }
