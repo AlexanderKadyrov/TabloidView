@@ -2,19 +2,7 @@ import ReactiveSwift
 import ReactiveCocoa
 import UIKit
 
-public protocol TabloidViewProtocol: UITableView {
-    
-    // MARK: - Properties
-    
-    associatedtype TabloidViewModelProtocol
-    var viewModel: TabloidViewModelProtocol { get }
-    
-    // MARK: - Initialization
-    
-    init(viewModel: TabloidViewModelProtocol, style: UITableView.Style)
-}
-
-open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource, UITableViewDelegate {
+open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
     
@@ -82,11 +70,14 @@ open class TabloidView: UITableView, TabloidViewProtocol, UITableViewDataSource,
     
     open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let automaticDimension = UITableView.automaticDimension
-        guard let bundleName = bundleName, let cellViewModel = viewModel(at: indexPath) else { return automaticDimension }
+        guard let bundleName = bundleName else { return automaticDimension }
+        guard let cellViewModel = viewModel(at: indexPath) else { return automaticDimension }
         guard let aClass = NSClassFromString(bundleName + "." + cellViewModel.cellIdentifier) as? TabloidCellView.Type else { return automaticDimension }
-        let height = aClass.height(viewModel: cellViewModel)
-        guard height > 0 else { return automaticDimension }
-        return height
+        let selector = #selector(aClass.height)
+        guard aClass.responds(to: selector) else { return automaticDimension }
+        guard let height = aClass.perform(selector, with: cellViewModel.cellIdentifier).takeUnretainedValue() as? NSNumber else { return automaticDimension }
+        guard height.floatValue > 0 else { return automaticDimension }
+        return CGFloat(height.floatValue)
     }
     
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
