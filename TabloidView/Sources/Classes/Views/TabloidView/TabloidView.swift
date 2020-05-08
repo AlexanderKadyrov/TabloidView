@@ -75,7 +75,7 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         guard let aClass = NSClassFromString(bundleName + "." + cellViewModel.cellIdentifier) as? TabloidCellView.Type else { return automaticDimension }
         let selector = #selector(aClass.height)
         guard aClass.responds(to: selector) else { return automaticDimension }
-        guard let height = aClass.perform(selector, with: cellViewModel.cellIdentifier).takeUnretainedValue() as? NSNumber else { return automaticDimension }
+        guard let height = aClass.perform(selector, with: cellViewModel).takeUnretainedValue() as? NSNumber else { return automaticDimension }
         guard height.floatValue > 0 else { return automaticDimension }
         return CGFloat(height.floatValue)
     }
