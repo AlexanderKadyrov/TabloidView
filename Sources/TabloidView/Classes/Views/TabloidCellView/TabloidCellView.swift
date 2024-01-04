@@ -1,5 +1,14 @@
 import UIKit
 
-public protocol TabloidCellView: UITableViewCell {
-    var viewModel: TabloidCellViewModel? { get set }
+open class TabloidCellView: UITableViewCell {
+    
+    public var viewModel: TabloidCellViewModel? {
+        didSet {
+            fill(viewModel: viewModel)
+        }
+    }
+    
+    open func fill(viewModel: TabloidCellViewModel?) {
+        
+    }
 }

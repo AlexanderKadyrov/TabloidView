@@ -5,7 +5,7 @@ open class TabloidViewModel {
     
     @Published public var sections: [[TabloidCellViewModel]]
     
-    init() {
+    public init() {
         sections = []
     }
 }

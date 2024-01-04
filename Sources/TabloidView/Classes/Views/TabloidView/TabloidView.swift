@@ -11,6 +11,21 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         }
     }
     
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        configureItems()
+    }
+    
+    public init(style: UITableView.Style) {
+        super.init(frame: .zero, style: style)
+        configureItems()
+    }
+    
+    private func configureItems() {
+        dataSource = self
+        delegate = self
+    }
+    
     private func bind() {
         viewModel?.$sections
             .sink { [weak self] sections in

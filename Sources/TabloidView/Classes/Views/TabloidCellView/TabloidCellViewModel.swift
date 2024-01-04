@@ -1,7 +1,12 @@
 import Foundation
 import Combine
 
-public protocol TabloidCellViewModel {
-    var cellIdentifier: String { get set }
-    var didSelect: PassthroughSubject<TabloidCellViewModel, Never> { get set }
+open class TabloidCellViewModel {
+    
+    public let didSelect = PassthroughSubject<TabloidCellViewModel, Never>()
+    public let cellIdentifier: String
+    
+    public init(cellIdentifier: String) {
+        self.cellIdentifier = cellIdentifier
+    }
 }
