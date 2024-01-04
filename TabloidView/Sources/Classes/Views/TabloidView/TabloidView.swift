@@ -2,7 +2,7 @@ import UIKit
 
 open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate {
     
-    public var viewModel: TabloidViewModelProtocol?
+    public var viewModel: TabloidViewModel?
     private let bundleName = Bundle.main.name
     
     // MARK: - Initialization
@@ -22,7 +22,7 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let cellViewModel = viewModel(at: indexPath),
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.cellIdentifier, for: indexPath) as? TabloidCellViewProtocol
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.cellIdentifier, for: indexPath) as? TabloidCellView
         else {
             return UITableViewCell()
         }
@@ -70,7 +70,7 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     
     // MARK: - ViewModel At IndexPath
     
-    public func viewModel(at indexPath: IndexPath) -> TabloidCellViewModelProtocol? {
+    public func viewModel(at indexPath: IndexPath) -> TabloidCellViewModel? {
         let section = viewModel?.sections.value[indexPath.section] ?? []
         let cellViewModel = (section.count > indexPath.row) ? section[indexPath.row] : nil
         return cellViewModel
