@@ -1,6 +1,6 @@
 import Foundation
 
-open class TabloidCellViewModel: NSObject {
+public class TabloidCellViewModel: NSObject {
     
     public let cellIdentifier: String
     
