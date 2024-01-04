@@ -6,8 +6,8 @@ import PackageDescription
 let package = Package(
     name: "TabloidView",
     platforms: [
-        .iOS(.v9),
-        .tvOS(.v9),
+        .iOS(.v13),
+        .tvOS(.v13),
         .macOS(.v10_13)
     ],
     products: [
