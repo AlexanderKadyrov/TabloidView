@@ -1,18 +1,11 @@
-import ReactiveSwift
 import Foundation
+import Combine
 
-open class TabloidViewModel {
+public class TabloidViewModel {
     
-    // MARK: - Properties
+    @Published var sections: [[TabloidCellViewModel]]
     
-    public let pipeDidSelectItem = Signal<TabloidCellViewModel, Never>.pipe()
-    public let elements = MutableProperty<[[TabloidCellViewModel]]>([])
-    
-    public let cellIdentifiers: [String]
-    
-    // MARK: - Initialization
-    
-    public init(cellIdentifiers: [String]) {
-        self.cellIdentifiers = cellIdentifiers
+    public init() {
+        sections = []
     }
 }
