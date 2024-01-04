@@ -12,7 +12,7 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     }
     
     private func bind() {
-        viewModel?.sections
+        viewModel?.$sections
             .sink { [weak self] sections in
                 let cellIdentifiers = sections
                     .flatMap { $0 }
@@ -35,11 +35,11 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     }
     
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.sections.value[section].count ?? .zero
+        return viewModel?.sections[section].count ?? .zero
     }
     
     open func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel?.sections.value.count ?? .zero
+        return viewModel?.sections.count ?? .zero
     }
     
     open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -68,7 +68,7 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     }
     
     public func viewModel(at indexPath: IndexPath) -> TabloidCellViewModel? {
-        let section = viewModel?.sections.value[indexPath.section] ?? []
+        let section = viewModel?.sections[indexPath.section] ?? []
         let cellViewModel = (section.count > indexPath.row) ? section[indexPath.row] : nil
         return cellViewModel
     }
