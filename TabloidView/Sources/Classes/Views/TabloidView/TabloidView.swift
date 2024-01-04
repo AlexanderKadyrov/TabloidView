@@ -1,23 +1,27 @@
+import Combine
 import UIKit
 
 open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate {
     
-    public var viewModel: TabloidViewModel?
-    private let bundleName = Bundle.main.name
+    private var subscriptions = Set<AnyCancellable>()
     
-    // MARK: - Initialization
-    
-    public required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    public var viewModel: TabloidViewModel? {
+        didSet {
+            bind()
+        }
     }
     
-    public init(style: UITableView.Style) {
-        super.init(frame: .zero, style: style)
-        self.dataSource = self
-        self.delegate = self
+    private func bind() {
+        viewModel?.sections
+            .sink { [weak self] sections in
+                let cellIdentifiers = sections
+                    .flatMap { $0 }
+                    .map { $0.cellIdentifier }
+                self?.register(cellIdentifiers: cellIdentifiers)
+                self?.reloadData()
+            }
+            .store(in: &subscriptions)
     }
-    
-    // MARK: - UITableViewDataSource
     
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
@@ -37,8 +41,6 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     open func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel?.sections.value.count ?? .zero
     }
-    
-    // MARK: - UITableViewDelegate
     
     open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return nil
@@ -65,29 +67,9 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         cellViewModel.didSelect.send(cellViewModel)
     }
     
-    // MARK: - ViewModel At IndexPath
-    
     public func viewModel(at indexPath: IndexPath) -> TabloidCellViewModel? {
         let section = viewModel?.sections.value[indexPath.section] ?? []
         let cellViewModel = (section.count > indexPath.row) ? section[indexPath.row] : nil
         return cellViewModel
-    }
-}
-
-fileprivate extension TabloidView {
-    func register(cellIdentifiers: [String]) {
-        guard let bundleName = bundleName else { return }
-        let _cellIdentifiers = cellIdentifiers.filter({ $0 != "" })
-        for identifier in _cellIdentifiers {
-            if let aClass = NSClassFromString(bundleName + "." + identifier) {
-                register(aClass, forCellReuseIdentifier: identifier)
-            }
-        }
-    }
-}
-
-fileprivate extension Bundle {
-    var name: String? {
-        return (Bundle.main.infoDictionary?["CFBundleName"] as? String)?.replacingOccurrences(of: ".", with: "_")
     }
 }
