@@ -13,7 +13,7 @@
 		CE01474D23DC71FF005BFAE0 /* TabloidView.h in Headers */ = {isa = PBXBuildFile; fileRef = CE01473F23DC71FF005BFAE0 /* TabloidView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE01475E23DC77F9005BFAE0 /* TabloidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01475D23DC77F9005BFAE0 /* TabloidView.swift */; };
 		CE01476023DC781B005BFAE0 /* TabloidViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01475F23DC781B005BFAE0 /* TabloidViewModelProtocol.swift */; };
-		CE1660FD2454DBEB00C9BF9C /* TabloidCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModel.swift */; };
+		CE1660FD2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift */; };
 		CE1661012454F33A00C9BF9C /* TabloidCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1661002454F33A00C9BF9C /* TabloidCellView.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +37,7 @@
 		CE01474C23DC71FF005BFAE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE01475D23DC77F9005BFAE0 /* TabloidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidView.swift; sourceTree = "<group>"; };
 		CE01475F23DC781B005BFAE0 /* TabloidViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidViewModelProtocol.swift; sourceTree = "<group>"; };
-		CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidCellViewModel.swift; sourceTree = "<group>"; };
+		CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidCellViewModelProtocol.swift; sourceTree = "<group>"; };
 		CE1661002454F33A00C9BF9C /* TabloidCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabloidCellView.swift; sourceTree = "<group>"; };
 		F4E1A04230AB73240A540FB6 /* Pods_TabloidView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TabloidView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -160,7 +160,7 @@
 		CE01475C23DC77E1005BFAE0 /* TabloidView */ = {
 			isa = PBXGroup;
 			children = (
-				CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModel.swift */,
+				CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift */,
 				CE01475F23DC781B005BFAE0 /* TabloidViewModelProtocol.swift */,
 				CE1661002454F33A00C9BF9C /* TabloidCellView.swift */,
 				CE01475D23DC77F9005BFAE0 /* TabloidView.swift */,
@@ -324,7 +324,7 @@
 				CE1661012454F33A00C9BF9C /* TabloidCellView.swift in Sources */,
 				CE01476023DC781B005BFAE0 /* TabloidViewModelProtocol.swift in Sources */,
 				CE01475E23DC77F9005BFAE0 /* TabloidView.swift in Sources */,
-				CE1660FD2454DBEB00C9BF9C /* TabloidCellViewModel.swift in Sources */,
+				CE1660FD2454DBEB00C9BF9C /* TabloidCellViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
