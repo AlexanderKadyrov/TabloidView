@@ -1,15 +1,12 @@
 import Foundation
+import Combine
 
-open class TabloidCellViewModel: NSObject {
+open class TabloidCellViewModel {
     
-    // MARK: - Properties
-    
+    public let didSelect = PassthroughSubject<TabloidCellViewModel, Never>()
     public let cellIdentifier: String
-    
-    // MARK: - Initialization
     
     public init(cellIdentifier: String) {
         self.cellIdentifier = cellIdentifier
-        super.init()
     }
 }
