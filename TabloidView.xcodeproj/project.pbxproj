@@ -75,6 +75,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		114427E92B464B2D0044DEBE /* TabloidCellView */ = {
+			isa = PBXGroup;
+			children = (
+				CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModel.swift */,
+				CE1661002454F33A00C9BF9C /* TabloidCellView.swift */,
+			);
+			path = TabloidCellView;
+			sourceTree = "<group>";
+		};
 		C998B19BE5ACAAFADFF29D22 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +175,7 @@
 		CE01475B23DC77CF005BFAE0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				114427E92B464B2D0044DEBE /* TabloidCellView */,
 				CE01475C23DC77E1005BFAE0 /* TabloidView */,
 			);
 			path = Views;
@@ -174,9 +184,7 @@
 		CE01475C23DC77E1005BFAE0 /* TabloidView */ = {
 			isa = PBXGroup;
 			children = (
-				CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModel.swift */,
 				CE01475F23DC781B005BFAE0 /* TabloidViewModel.swift */,
-				CE1661002454F33A00C9BF9C /* TabloidCellView.swift */,
 				CE01475D23DC77F9005BFAE0 /* TabloidView.swift */,
 			);
 			path = TabloidView;
