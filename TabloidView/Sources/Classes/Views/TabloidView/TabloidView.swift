@@ -62,10 +62,7 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cellViewModel = viewModel(at: indexPath) else { return }
-        /*
-        DispatchQueue.main.async {
-            self.viewModel.pipeDidSelectItem.input.send(value: cellViewModel)
-        }*/
+        cellViewModel.didSelect.send(cellViewModel)
     }
     
     // MARK: - ViewModel At IndexPath
@@ -86,5 +83,11 @@ fileprivate extension TabloidView {
                 register(aClass, forCellReuseIdentifier: identifier)
             }
         }
+    }
+}
+
+fileprivate extension Bundle {
+    var name: String? {
+        return (Bundle.main.infoDictionary?["CFBundleName"] as? String)?.replacingOccurrences(of: ".", with: "_")
     }
 }
