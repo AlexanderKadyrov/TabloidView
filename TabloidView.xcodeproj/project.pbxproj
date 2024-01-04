@@ -160,20 +160,12 @@
 		CE01475C23DC77E1005BFAE0 /* TabloidView */ = {
 			isa = PBXGroup;
 			children = (
-				CE166103245506D200C9BF9C /* ViewModels */,
+				CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModel.swift */,
+				CE01475F23DC781B005BFAE0 /* TabloidViewModel.swift */,
 				CE1661002454F33A00C9BF9C /* TabloidCellView.swift */,
 				CE01475D23DC77F9005BFAE0 /* TabloidView.swift */,
 			);
 			path = TabloidView;
-			sourceTree = "<group>";
-		};
-		CE166103245506D200C9BF9C /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				CE1660FC2454DBEB00C9BF9C /* TabloidCellViewModel.swift */,
-				CE01475F23DC781B005BFAE0 /* TabloidViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
