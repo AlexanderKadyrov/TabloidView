@@ -1,13 +1,9 @@
-import ReactiveSwift
-import ReactiveCocoa
 import UIKit
 
 open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate {
     
-    // MARK: - Properties
-    
+    public var viewModel: TabloidViewModelProtocol?
     private let bundleName = Bundle.main.name
-    public let viewModel: TabloidViewModel
     
     // MARK: - Initialization
     
@@ -15,39 +11,31 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(viewModel: TabloidViewModel, style: UITableView.Style) {
-        self.viewModel = viewModel
+    public init(style: UITableView.Style) {
         super.init(frame: .zero, style: style)
-        self.register(cellIdentifiers: viewModel.cellIdentifiers)
         self.dataSource = self
         self.delegate = self
-        self.reactive.reloadData <~ viewModel.elements.signal.map({ _ in })
     }
     
     // MARK: - UITableViewDataSource
     
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cellViewModel = viewModel(at: indexPath) else {
-            fatalError("fatalError: cellForRowAtIndexPath")
+        guard
+            let cellViewModel = viewModel(at: indexPath),
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.cellIdentifier, for: indexPath) as? TabloidCellViewProtocol
+        else {
+            return UITableViewCell()
         }
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.cellIdentifier) as? TabloidCellView else {
-            fatalError("fatalError: cellForRowAtIndexPath")
-        }
-        
         cell.viewModel = cellViewModel
-        
         return cell
     }
     
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let section = viewModel.elements.value[section]
-        return section.count
+        return viewModel?.sections.value[section].count ?? .zero
     }
     
     open func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.elements.value.count
+        return viewModel?.sections.value.count ?? .zero
     }
     
     // MARK: - UITableViewDelegate
@@ -57,7 +45,7 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     }
     
     open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
+        return .zero
     }
     
     open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -65,35 +53,27 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     }
     
     open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0
+        return .zero
     }
     
     open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let automaticDimension = UITableView.automaticDimension
-        guard let bundleName = bundleName else { return automaticDimension }
-        guard let cellViewModel = viewModel(at: indexPath) else { return automaticDimension }
-        guard let aClass = NSClassFromString(bundleName + "." + cellViewModel.cellIdentifier) as? TabloidCellView.Type else { return automaticDimension }
-        let selector = #selector(aClass.height)
-        guard aClass.responds(to: selector) else { return automaticDimension }
-        guard let height = aClass.perform(selector, with: cellViewModel).takeUnretainedValue() as? NSNumber else { return automaticDimension }
-        guard height.floatValue > 0 else { return automaticDimension }
-        return CGFloat(height.floatValue)
+        return UITableView.automaticDimension
     }
     
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cellViewModel = viewModel(at: indexPath) else { return }
+        /*
         DispatchQueue.main.async {
             self.viewModel.pipeDidSelectItem.input.send(value: cellViewModel)
-        }
+        }*/
     }
     
     // MARK: - ViewModel At IndexPath
     
-    public func viewModel(at indexPath: IndexPath) -> TabloidCellViewModel? {
-        let section = viewModel.elements.value[indexPath.section]
-        let value = (section.count > indexPath.row) ? section[indexPath.row] : nil
-        guard let viewModel = value else { return nil }
-        return viewModel
+    public func viewModel(at indexPath: IndexPath) -> TabloidCellViewModelProtocol? {
+        let section = viewModel?.sections.value[indexPath.section] ?? []
+        let cellViewModel = (section.count > indexPath.row) ? section[indexPath.row] : nil
+        return cellViewModel
     }
 }
 
@@ -106,11 +86,5 @@ fileprivate extension TabloidView {
                 register(aClass, forCellReuseIdentifier: identifier)
             }
         }
-    }
-}
-
-fileprivate extension Bundle {
-    var name: String? {
-        return (Bundle.main.infoDictionary?["CFBundleName"] as? String)?.replacingOccurrences(of: ".", with: "_")
     }
 }
