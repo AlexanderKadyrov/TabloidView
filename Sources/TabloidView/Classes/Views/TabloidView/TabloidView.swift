@@ -80,6 +80,7 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cellViewModel = viewModel(at: indexPath) else { return }
         cellViewModel.didSelect.send(cellViewModel)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     public func viewModel(at indexPath: IndexPath) -> TabloidCellViewModel? {
