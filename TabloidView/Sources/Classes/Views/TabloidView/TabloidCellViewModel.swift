@@ -1,5 +1,5 @@
 import Foundation
 
-public protocol TabloidCellViewModelProtocol {
+public protocol TabloidCellViewModel {
     var cellIdentifier: String { get set }
 }
