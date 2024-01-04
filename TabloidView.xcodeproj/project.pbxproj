@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		064B4B42A12106FE0CB94BFD /* Pods_TabloidView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E1A04230AB73240A540FB6 /* Pods_TabloidView.framework */; };
 		1500CF1171556A6DF4AEDF66 /* Pods_TabloidViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41BEC25B9B0FE9E217479E0A /* Pods_TabloidViewTests.framework */; };
 		CE01474623DC71FF005BFAE0 /* TabloidView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE01473C23DC71FF005BFAE0 /* TabloidView.framework */; };
 		CE01474B23DC71FF005BFAE0 /* TabloidViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01474A23DC71FF005BFAE0 /* TabloidViewTests.swift */; };
@@ -48,7 +47,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				064B4B42A12106FE0CB94BFD /* Pods_TabloidView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
