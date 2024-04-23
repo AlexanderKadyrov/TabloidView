@@ -1,11 +1,22 @@
+import DifferenceKit
 import Foundation
-import Combine
+
+protocol TabloidViewModelDelegate: AnyObject {
+    func reload(changeset: StagedChangeset<[Section<TabloidCellViewModel>]>)
+}
 
 open class TabloidViewModel {
     
-    @Published public var sections: [[TabloidCellViewModel]]
+    weak var delegate: TabloidViewModelDelegate?
     
-    public init() {
-        sections = []
+    var sections: [Section<TabloidCellViewModel>] = [] {
+        didSet {
+            reload(oldValue: oldValue, newValue: sections)
+        }
+    }
+    
+    private func reload(oldValue: [Section<TabloidCellViewModel>], newValue: [Section<TabloidCellViewModel>]) {
+        let changeset = StagedChangeset(source: oldValue, target: newValue)
+        delegate?.reload(changeset: changeset)
     }
 }
