@@ -15,6 +15,10 @@ open class TabloidViewModel {
         }
     }
     
+    func set(sections: [Section<TabloidCellViewModel>]) {
+        self.sections = sections
+    }
+    
     private func reload(oldValue: [Section<TabloidCellViewModel>], newValue: [Section<TabloidCellViewModel>]) {
         let changeset = StagedChangeset(source: oldValue, target: newValue)
         delegate?.reload(changeset: changeset)
