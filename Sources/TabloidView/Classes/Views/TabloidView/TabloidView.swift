@@ -76,8 +76,8 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
 }
 
 extension TabloidView: TabloidViewModelDelegate {
-    func reload(changeset: StagedChangeset<[Section<TabloidCellViewModel>]>) {
-        reload(using: changeset, with: .fade) { [weak self] sections in
+    func reload(changeset: StagedChangeset<[Section<TabloidCellViewModel>]>, animation: UITableView.RowAnimation) {
+        reload(using: changeset, with: animation) { [weak self] sections in
             guard let self = self else { return }
             self.viewModel?.set(sections: sections)
         }
