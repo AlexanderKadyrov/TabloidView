@@ -1,8 +1,9 @@
 import DifferenceKit
 import Foundation
+import UIKit
 
 protocol TabloidViewModelDelegate: AnyObject {
-    func reload(changeset: StagedChangeset<[Section<TabloidCellViewModel>]>)
+    func reload(changeset: StagedChangeset<[Section<TabloidCellViewModel>]>, animation: UITableView.RowAnimation)
 }
 
 open class TabloidViewModel {
@@ -15,9 +16,9 @@ open class TabloidViewModel {
         
     }
     
-    public func reload(sections: [Section<TabloidCellViewModel>]) {
+    public func reload(sections: [Section<TabloidCellViewModel>], animation: UITableView.RowAnimation) {
         let changeset = StagedChangeset(source: self.sections, target: sections)
-        delegate?.reload(changeset: changeset)
+        delegate?.reload(changeset: changeset, animation: animation)
     }
     
     func set(sections: [Section<TabloidCellViewModel>]) {
