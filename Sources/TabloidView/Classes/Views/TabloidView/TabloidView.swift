@@ -1,56 +1,48 @@
-import Combine
+import DifferenceKit
 import UIKit
 
 open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate {
     
-    private var subscriptions = Set<AnyCancellable>()
-    
     public var viewModel: TabloidViewModel? {
         didSet {
-            bind()
+            viewModel?.delegate = self
         }
     }
     
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
-        configureItems()
-    }
-    
-    public init(style: UITableView.Style) {
-        super.init(frame: .zero, style: style)
-        configureItems()
-    }
-    
-    private func configureItems() {
         dataSource = self
         delegate = self
     }
     
-    private func bind() {
-        viewModel?.$sections
-            .sink { [weak self] sections in
-                let cellIdentifiers = sections
-                    .flatMap { $0 }
-                    .map { $0.cellIdentifier }
-                self?.register(cellIdentifiers: cellIdentifiers)
-                self?.reloadData()
-            }
-            .store(in: &subscriptions)
+    public init(style: UITableView.Style) {
+        super.init(frame: .zero, style: style)
+        dataSource = self
+        delegate = self
+    }
+    
+    public func register(cellIdentifiers: [String]) {
+        guard let bundleName = Bundle.main.name else { return }
+        let cellIdentifiers = cellIdentifiers.filter({ $0 != "" })
+        for cellIdentifier in cellIdentifiers {
+            guard let aClass = NSClassFromString(bundleName + "." + cellIdentifier) else { continue }
+            register(aClass, forCellReuseIdentifier: cellIdentifier)
+        }
     }
     
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
-            let cellViewModel = viewModel(at: indexPath),
+            let cellViewModel = viewModel?.sections[indexPath.section].elements[indexPath.row],
             let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.cellIdentifier, for: indexPath) as? TabloidCellView
         else {
             return UITableViewCell()
         }
-        cell.viewModel = cellViewModel
+        cell.cellViewModel = cellViewModel
         return cell
     }
     
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.sections[section].count ?? .zero
+        return viewModel?.sections[section].elements.count ?? .zero
     }
     
     open func numberOfSections(in tableView: UITableView) -> Int {
@@ -78,14 +70,16 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     }
     
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cellViewModel = viewModel(at: indexPath) else { return }
-        cellViewModel.didSelect.send(cellViewModel)
-        tableView.deselectRow(at: indexPath, animated: true)
+        guard let cellViewModel = viewModel?.sections[indexPath.section].elements[indexPath.row] else { return }
+        cellViewModel.didSelect(cellViewModel: cellViewModel)
     }
-    
-    public func viewModel(at indexPath: IndexPath) -> TabloidCellViewModel? {
-        let section = viewModel?.sections[indexPath.section] ?? []
-        let cellViewModel = (section.count > indexPath.row) ? section[indexPath.row] : nil
-        return cellViewModel
+}
+
+extension TabloidView: TabloidViewModelDelegate {
+    func reload(changeset: StagedChangeset<[Section<TabloidCellViewModel>]>) {
+        reload(using: changeset, with: .fade) { [weak self] sections in
+            guard let self = self else { return }
+            self.viewModel?.set(sections: sections)
+        }
     }
 }
