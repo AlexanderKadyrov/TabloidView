@@ -1,28 +1,28 @@
 import DifferenceKit
 import Foundation
 
-public struct Section<Model: Differentiable, Element: Differentiable>: DifferentiableSection {
+public struct Section<Element: TabloidCellViewModel>: DifferentiableSection {
     
-    public var model: Model
+    public var index: Int
     public var elements: [Element]
     
     @inlinable
-    public var differenceIdentifier: Model.DifferenceIdentifier {
-        return model.differenceIdentifier
+    public var differenceIdentifier: Int {
+        return index
     }
     
-    public init<C: Collection>(model: Model, elements: C) where C.Element == Element {
-        self.model = model
+    public init<C: Collection>(index: Int, elements: C) where C.Element == Element {
+        self.index = index
         self.elements = Array(elements)
     }
     
     @inlinable
     public init<C: Collection>(source: Section, elements: C) where C.Element == Element {
-        self.init(model: source.model, elements: elements)
+        self.init(index: source.index, elements: elements)
     }
     
     @inlinable
     public func isContentEqual(to source: Section) -> Bool {
-        return model.isContentEqual(to: source.model)
+        return source.index == index
     }
 }
