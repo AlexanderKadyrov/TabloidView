@@ -7,20 +7,20 @@ protocol TabloidViewModelDelegate: AnyObject {
 
 open class TabloidViewModel {
     
+    private(set) var sections: [Section<TabloidCellViewModel>] = []
+    
     weak var delegate: TabloidViewModelDelegate?
     
-    var sections: [Section<TabloidCellViewModel>] = [] {
-        didSet {
-            reload(oldValue: oldValue, newValue: sections)
-        }
+    public init() {
+        
+    }
+    
+    public func reload(sections: [Section<TabloidCellViewModel>]) {
+        let changeset = StagedChangeset(source: self.sections, target: sections)
+        delegate?.reload(changeset: changeset)
     }
     
     func set(sections: [Section<TabloidCellViewModel>]) {
         self.sections = sections
-    }
-    
-    private func reload(oldValue: [Section<TabloidCellViewModel>], newValue: [Section<TabloidCellViewModel>]) {
-        let changeset = StagedChangeset(source: oldValue, target: newValue)
-        delegate?.reload(changeset: changeset)
     }
 }
