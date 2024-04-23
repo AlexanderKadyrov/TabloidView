@@ -1,19 +1,28 @@
 import Foundation
 import DifferenceKit
 
+public protocol TabloidCellViewModelDelegate: AnyObject {
+    func didSelect(cellViewModel: TabloidCellViewModel)
+}
+
 open class TabloidCellViewModel: Differentiable {
     
-    public var differenceIdentifier: String {
+    open var differenceIdentifier: String {
         return ""
     }
     
+    public weak var delegate: TabloidCellViewModelDelegate?
     public let cellIdentifier: String
     
     public init(cellIdentifier: String) {
         self.cellIdentifier = cellIdentifier
     }
     
-    public func isContentEqual(to source: TabloidCellViewModel) -> Bool {
+    open func didSelect(cellViewModel: TabloidCellViewModel) {
+        delegate?.didSelect(cellViewModel: cellViewModel)
+    }
+    
+    open func isContentEqual(to source: TabloidCellViewModel) -> Bool {
         return false
     }
 }
