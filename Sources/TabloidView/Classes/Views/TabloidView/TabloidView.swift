@@ -5,7 +5,7 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     
     public var viewModel: TabloidViewModel? {
         didSet {
-            viewModel?.delegate = self
+            viewModel?.add(delegate: self)
         }
     }
     

@@ -8,9 +8,9 @@ protocol TabloidViewModelDelegate: AnyObject {
 
 open class TabloidViewModel {
     
-    private(set) var sections: [Section<TabloidCellViewModel>] = []
+    private let multicastDelegate = MulticastDelegate<TabloidViewModelDelegate>()
     
-    weak var delegate: TabloidViewModelDelegate?
+    public private(set) var sections: [Section<TabloidCellViewModel>] = []
     
     public init() {
         
@@ -18,7 +18,11 @@ open class TabloidViewModel {
     
     public func reload(sections: [Section<TabloidCellViewModel>], animation: UITableView.RowAnimation) {
         let changeset = StagedChangeset(source: self.sections, target: sections)
-        delegate?.reload(changeset: changeset, animation: animation)
+        multicastDelegate.invoke { $0.reload(changeset: changeset, animation: animation) }
+    }
+    
+    func add(delegate: TabloidViewModelDelegate) {
+        multicastDelegate.add(delegate)
     }
     
     func set(sections: [Section<TabloidCellViewModel>]) {
