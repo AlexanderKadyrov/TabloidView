@@ -2,24 +2,31 @@ import Foundation
 import DifferenceKit
 
 public protocol TabloidCellViewModelDelegate: AnyObject {
-    func didSelect(cellViewModel: TabloidCellViewModel)
+    func set(selected: Bool, viewModel: TabloidCellViewModel)
 }
 
 open class TabloidCellViewModel: Differentiable {
+    
+    private let multicastDelegate = MulticastDelegate<TabloidCellViewModelDelegate>()
     
     open var differenceIdentifier: String {
         return ""
     }
     
-    public weak var delegate: TabloidCellViewModelDelegate?
+    public private(set) var selected = false
     public let cellIdentifier: String
     
     public init(cellIdentifier: String) {
         self.cellIdentifier = cellIdentifier
     }
     
-    open func didSelect(cellViewModel: TabloidCellViewModel) {
-        delegate?.didSelect(cellViewModel: cellViewModel)
+    public func add(delegate: TabloidCellViewModelDelegate) {
+        multicastDelegate.add(delegate)
+    }
+    
+    func set(selected: Bool, viewModel: TabloidCellViewModel) {
+        self.selected = selected
+        multicastDelegate.invoke { $0.set(selected: selected, viewModel: viewModel) }
     }
     
     open func isContentEqual(to source: TabloidCellViewModel) -> Bool {

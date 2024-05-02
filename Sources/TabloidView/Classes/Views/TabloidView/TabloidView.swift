@@ -37,7 +37,7 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         else {
             return UITableViewCell()
         }
-        cell.cellViewModel = cellViewModel
+        cell.viewModel = cellViewModel
         return cell
     }
     
@@ -69,9 +69,14 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         return UITableView.automaticDimension
     }
     
+    open func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        guard let cellViewModel = viewModel?.sections[indexPath.section].elements[indexPath.row] else { return }
+        cellViewModel.set(selected: false, viewModel: cellViewModel)
+    }
+    
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cellViewModel = viewModel?.sections[indexPath.section].elements[indexPath.row] else { return }
-        cellViewModel.didSelect(cellViewModel: cellViewModel)
+        cellViewModel.set(selected: true, viewModel: cellViewModel)
     }
 }
 
