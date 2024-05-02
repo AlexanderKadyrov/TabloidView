@@ -20,7 +20,11 @@ open class TabloidCellViewModel: Differentiable {
         self.cellIdentifier = cellIdentifier
     }
     
-    open func set(selected: Bool, viewModel: TabloidCellViewModel) {
+    public func add(delegate: TabloidCellViewModelDelegate) {
+        multicastDelegate.add(delegate)
+    }
+    
+    func set(selected: Bool, viewModel: TabloidCellViewModel) {
         self.selected = selected
         multicastDelegate.invoke { $0.set(selected: selected, viewModel: viewModel) }
     }
