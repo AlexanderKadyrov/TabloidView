@@ -30,17 +30,6 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         }
     }
     
-    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cellViewModel = viewModel?.sections[indexPath.section].elements[indexPath.row],
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.cellIdentifier, for: indexPath) as? TabloidCellView
-        else {
-            return UITableViewCell()
-        }
-        cell.viewModel = cellViewModel
-        return cell
-    }
-    
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.sections[section].elements.count ?? .zero
     }
@@ -50,23 +39,51 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     }
     
     open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return nil
+        guard
+            let headerViewModel = viewModel?.sections[section].header,
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerViewModel.identifier) as? TabloidHeaderFooterView
+        else {
+            return nil
+        }
+        view.viewModel = headerViewModel
+        return view
     }
     
     open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return .zero
+        guard let headerViewModel = viewModel?.sections[section].header else { return .zero }
+        return headerViewModel.size?.height ?? UITableView.automaticDimension
     }
     
     open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil
+        guard
+            let footerViewModel = viewModel?.sections[section].footer,
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: footerViewModel.identifier) as? TabloidHeaderFooterView
+        else {
+            return nil
+        }
+        view.viewModel = footerViewModel
+        return view
     }
     
     open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return .zero
+        guard let footerViewModel = viewModel?.sections[section].header else { return .zero }
+        return footerViewModel.size?.height ?? UITableView.automaticDimension
+    }
+    
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard
+            let cellViewModel = viewModel?.sections[indexPath.section].elements[indexPath.row],
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier, for: indexPath) as? TabloidCellView
+        else {
+            return UITableViewCell()
+        }
+        cell.viewModel = cellViewModel
+        return cell
     }
     
     open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        guard let cellViewModel = viewModel?.sections[indexPath.section].elements[indexPath.row] else { return .zero }
+        return cellViewModel.size?.height ?? UITableView.automaticDimension
     }
     
     open func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
