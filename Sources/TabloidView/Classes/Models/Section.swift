@@ -3,17 +3,22 @@ import Foundation
 
 public struct Section<Element: TabloidCellViewModel>: DifferentiableSection {
     
-    public var index: Int
-    public var elements: [Element]
+    public let index: Int
+    
+    public let elements: [Element]
+    public let header: Element?
+    public let footer: Element?
     
     @inlinable
     public var differenceIdentifier: Int {
         return index
     }
     
-    public init<C: Collection>(index: Int, elements: C) where C.Element == Element {
+    public init<C: Collection>(index: Int, elements: C, header: Element? = nil, footer: Element? = nil) where C.Element == Element {
         self.index = index
         self.elements = Array(elements)
+        self.header = header
+        self.footer = footer
     }
     
     @inlinable

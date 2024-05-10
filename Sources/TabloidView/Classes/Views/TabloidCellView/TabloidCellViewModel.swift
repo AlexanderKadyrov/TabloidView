@@ -14,10 +14,12 @@ open class TabloidCellViewModel: Differentiable {
     }
     
     public private(set) var selected = false
-    public let cellIdentifier: String
+    public let identifier: String
+    public let size: CGSize?
     
-    public init(cellIdentifier: String) {
-        self.cellIdentifier = cellIdentifier
+    public init(identifier: String, size: CGSize? = nil) {
+        self.identifier = identifier
+        self.size = size
     }
     
     public func add(delegate: TabloidCellViewModelDelegate) {
