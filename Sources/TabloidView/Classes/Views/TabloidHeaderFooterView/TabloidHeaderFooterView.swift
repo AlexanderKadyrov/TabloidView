@@ -1,5 +1,5 @@
 import UIKit
 
-open class TabloidHeaderFooterView: UITableViewCell {
+open class TabloidHeaderFooterView: UITableViewHeaderFooterView {
     open var viewModel: TabloidCellViewModel?
 }
