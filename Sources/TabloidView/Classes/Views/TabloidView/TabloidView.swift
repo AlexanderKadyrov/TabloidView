@@ -21,12 +21,21 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
         delegate = self
     }
     
-    public func register(cellIdentifiers: [String]) {
+    public func register(headerFooterViewReuseIdentifiers: [String]) {
         guard let bundleName = Bundle.main.name else { return }
-        let cellIdentifiers = cellIdentifiers.filter({ $0 != "" })
-        for cellIdentifier in cellIdentifiers {
-            guard let aClass = NSClassFromString(bundleName + "." + cellIdentifier) else { continue }
-            register(aClass, forCellReuseIdentifier: cellIdentifier)
+        let headerFooterViewReuseIdentifiers = headerFooterViewReuseIdentifiers.filter({ $0 != "" })
+        for headerFooterViewReuseIdentifier in headerFooterViewReuseIdentifiers {
+            guard let aClass = NSClassFromString(bundleName + "." + headerFooterViewReuseIdentifier) else { continue }
+            register(aClass, forHeaderFooterViewReuseIdentifier: headerFooterViewReuseIdentifier)
+        }
+    }
+    
+    public func register(cellReuseIdentifiers: [String]) {
+        guard let bundleName = Bundle.main.name else { return }
+        let cellReuseIdentifiers = cellReuseIdentifiers.filter({ $0 != "" })
+        for cellReuseIdentifier in cellReuseIdentifiers {
+            guard let aClass = NSClassFromString(bundleName + "." + cellReuseIdentifier) else { continue }
+            register(aClass, forCellReuseIdentifier: cellReuseIdentifier)
         }
     }
     
