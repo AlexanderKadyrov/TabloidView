@@ -75,7 +75,7 @@ open class TabloidView: UITableView, UITableViewDataSource, UITableViewDelegate 
     }
     
     open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        guard let footerViewModel = viewModel?.sections[section].header else { return .zero }
+        guard let footerViewModel = viewModel?.sections[section].footer else { return .zero }
         return footerViewModel.size?.height ?? UITableView.automaticDimension
     }
     
